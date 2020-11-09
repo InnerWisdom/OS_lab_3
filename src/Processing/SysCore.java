@@ -1,10 +1,10 @@
 package Processing;
 
 import Memory.MemDispatcher;
+import Memory.MemGetter;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class SysCore {
     private static final Random rnd = new Random();
@@ -27,7 +27,6 @@ public class SysCore {
     }
 
     public void checker() {
-        Scanner scanner = new Scanner(System.in);
         boolean num = true;
 
         System.out.println(processInitiator());
@@ -36,19 +35,13 @@ public class SysCore {
 
         while (num) {
             System.out.println(next());
-            System.out.println("Insert true to continue:");
-            num = scanner.nextBoolean();
             if (!num) break;
 
             System.out.println(getPhysicalMemoryCondition());
-            System.out.println("Insert true to continue:");
-            num = scanner.nextBoolean();
             if (!num) break;
 
             System.out.println(getVirtualMemoryCondition());
-
-            System.out.println("Insert true to continue:");
-            num = scanner.nextBoolean();
+            num=false;
         }
     }
 
@@ -91,10 +84,10 @@ public class SysCore {
     }
 
     public String getPhysicalMemoryCondition() {
-        return memDispatcher.getPhysicalMemoryCondition();
+        return memDispatcher.getMem(true);
     }
 
     public String getVirtualMemoryCondition() {
-        return memDispatcher.getVirtualMemoryCondition();
+        return memDispatcher.getMem(false);
     }
 }

@@ -3,7 +3,7 @@ package Memory;
 import Processing.Process;
 
 public class MemPage {
-    private static final int printBytesPerRow = MemDispatcher.printBytesPerRow;
+    private static final int printBytesPerRow = MemGetter.printBytesPerRow;
     private static int pageSize = MemDispatcher.getPageSize();
     private final MemDispatcher memDispatcher;
     private final Process owner;
